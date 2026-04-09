@@ -59,3 +59,25 @@
   border-radius: 50%;
   flex-shrink: 0;
 }
+/* À ajouter dans Sidebar.module.css */
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  color: inherit;
+}
+
+.item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.active {
+  background-color: #dcfce7;
+  color: #15803d;
+  font-weight: 600;
+}
