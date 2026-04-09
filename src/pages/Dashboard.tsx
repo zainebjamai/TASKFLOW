@@ -7,6 +7,8 @@ import MainContent from '../components/MainContent';
 import ProjectForm from '../components/ProjectForm'; 
 import styles from './Dashboard.module.css'; 
 import axios from 'axios';
+import useProjects from '../Hooks/useProjects';
+
 
 interface Project { id: string; name: string; color: string; } 
 interface Column { id: string; title: string; tasks: string[]; } 
@@ -20,6 +22,18 @@ export default function Dashboard() {
   const [showForm, setShowForm] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const {
+    projects,
+    columns,
+    loading,
+    error,
+    addProject,
+    renameProject,
+    deleteProject
+  } = useProjects();
+
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
   
   useEffect(() => { 
     async function fetchData() { 

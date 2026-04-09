@@ -1,5 +1,13 @@
 import styles from './MainContent.module.css'; 
-  
+import { memo } from 'react';
+export default memo(MainContent);  
+
+
+function MainContent({ columns }) {
+  console.log("MainContent re-render");
+  return <div>...</div>;
+}
+
 interface Column { id: string; title: string; tasks: string[]; } 
 interface MainContentProps { columns: Column[]; } 
   

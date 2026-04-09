@@ -55,3 +55,40 @@ Le risque d’utiliser des libraries comme MUI ou Bootstrap, c’est d’alourdi
 ➤ Q10
 
 Pour une application de chat en temps réel, je choisis Firebase parce qu’il gère le temps réel facilement sans besoin de backend, contrairement à json-server.
+
+TP5
+➤ Q1
+
+Le script ne s’exécute pas parce que React échappe automatiquement les strings dans le JSX. Le HTML est affiché comme du texte et non interprété.
+
+➤ Q2
+
+Le script s’exécute cette fois-ci parce que dangerouslySetInnerHTML désactive la protection de React contre les attaques XSS.
+
+➤ Q3
+
+Oui, on voit le header Authorization: Bearer ... dans l’onglet Network. Cela veut dire que le token est bien envoyé avec les requêtes.
+
+➤ Q4
+
+On stocke le token dans le state React parce que localStorage est accessible par JavaScript, donc vulnérable aux attaques XSS. Le state est plus sécurisé.
+
+➤ Q5
+
+Avec Redux Toolkit, on n’utilise plus switch/case ni les actions manuelles. Le code est plus simple et on peut modifier le state directement grâce à Immer.
+
+➤ Q6
+
+Quand on toggle la sidebar, plusieurs composants se re-rendent, même ceux qui ne changent pas. Par exemple, MainContent ne devrait pas se re-render.
+
+➤ Q7
+
+MainContent ne se re-render plus parce que React.memo compare les props. Si elles ne changent pas, le composant ne se met pas à jour.
+
+➤ Q8
+
+useMemo sert à mémoriser une valeur calculée, alors que useCallback sert à mémoriser une fonction. On utilise useCallback pour éviter de recréer une fonction à chaque render.
+
+➤ Q10
+
+Avant optimisation, plusieurs composants se re-rendaient inutilement. Après utilisation de React.memo, il y a moins de re-renders et les performances sont meilleures.

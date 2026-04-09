@@ -1,6 +1,11 @@
 import { createContext, useContext, useReducer, type ReactNode } from 'react'; 
 import { authReducer, initialState, type AuthState,type  AuthAction } from './authReducer'; 
-  
+import { useEffect } from 'react';
+import { setAuthToken } from '../../api/axios';
+
+useEffect(() => {
+  setAuthToken(state.token);
+}, [state.token]);
 interface AuthContextType { 
   state: AuthState; 
   dispatch: React.Dispatch<AuthAction>; 
